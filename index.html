@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WeatherXpress.com</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+  </head>
+  <body id="bodySection">
+    <!-- Navbar -->
+
+    <nav class="navbar">
+      <div class="container-fluid ms-1 me-1 nav-section">
+        <a class="navbar-brand" href="#">
+          <div class="logo-section">
+            <p class="me-1">
+              <img src="images/sun-unscreen.gif" alt="" height="40px" />
+            </p>
+            <p class="logo-text mt-2">WeatherXpress</p>
+          </div>
+        </a>
+        <div id="LocationBtn" class="uiverse">
+          <span class="tooltip">Current location</span>
+          <span> <i class="bi bi-crosshair2"></i> </span>
+        </div>
+        <!-- <button id="LocationBtn"><i class="bi bi-crosshair2"></i></button> -->
+      </div>
+    </nav>
+    <!-- Main section Starts here -->
+    <div class="container p-3" id="mainSection">
+      <!-- Search Bar -->
+      <div class="row search-box-section">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-8">
+          <div class="search-section">
+            <div class="input-group mb-3 pt-3">
+              <input
+                id="citySearchInput"
+                type="text"
+                class="form-control"
+                placeholder="Enter City Name e.g London , Lahore"
+                aria-label="Recipient's username"
+                aria-describedby="button-addon2"
+              />
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                id="searchBtn"
+              >
+                Search
+              </button>
+            </div>
+            <div id="suggestions"></div>
+          </div>
+        </div>
+        <!-- <div class="col-lg-2">
+          <div class="location-section">
+            <button id="LocationBtn"> Current Location</button>
+          </div>
+        </div> -->
+        <div class="col-lg-1"></div>
+      </div>
+      <br />
+      <!-- Current Weather section -->
+      <div class="row m-1 current-weather-section">
+        <div
+          class="col-lg-3 col-md-12 col-sm-12 pt-5 pb-2 ps-4 justify-content-start align-items-center country-info border-all"
+        >
+          <div class="country-name">
+            <p id="countryName">City Name</p>
+          </div>
+          <div class="date-section Flex-class">
+            <i class="bi bi-calendar"></i>
+            <p class="ms-2" id="CountryDate">D/M/Y</p>
+          </div>
+          <div class="time-section Flex-class">
+            <i class="bi bi-alarm"></i>
+            <p class="ms-2" id="CountryTime">H:M</p>
+          </div>
+        </div>
+        <div class="col-lg-1 col-md-12 col-sm-12"></div>
+        <div
+          class="col-lg-8 col-md-12 col-sm-12 weather-info-section border-all"
+        >
+          <div class="row">
+            <div
+              class="col-lg-3 col-md-6 col-sm-12 p-3 text-center justify-content-start align-items-center temperature-section"
+            >
+              <p id="TemperatureMain">0°C</p>
+              <div class="Flex-class feels-class">
+                <p class="ms-1" id="feelsLike">Feels Like:0°C</p>
+              </div>
+            </div>
+            <div
+              class="col-lg-3 col-md-6 col-sm-12 p-3 text-center justify-content-start align-items-center icon-cloud border-all"
+            >
+              <img src="images/iconSample.png" id="iconWeather" alt="" />
+              <p id="iconWeatherText">Description</p>
+            </div>
+
+            <div
+              class="col-lg-6 col-md-12 col-sm-12 display-flex text-center justify-content-start align-items-center air-quality-section"
+            >
+              <div class="row">
+                <div
+                  class="col-lg-12 col-md-12 col-sm-12 air-section pt-2 pb-0 border-all"
+                >
+                  <p class="air-quality">Air Quality</p>
+                  <p
+                    id="airQualityIndex"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="bottom"
+                    data-bs-title="Tooltip on bottom"
+                  >
+                    Good
+                  </p>
+                </div>
+              </div>
+
+              <div class="row air-col">
+                <div class="col-lg-6 col-md-6 col-sm-6 pt-3 border-all">
+                  <p id="carbonText">CO2: 00.00</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 pt-3 border-all">
+                  <p id="sulphurText">SO2: 0.00</p>
+                </div>
+              </div>
+              <div class="row air-col">
+                <div class="col-lg-6 col-md-6 col-sm-6 pt-3 border-all">
+                  <p id="NitrogenText">NO2: 0.00</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 pt-3 border-all">
+                  <p id="OzoneText">O3: 00.00</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+
+      <!-- Humidity , pressure section -->
+
+      <div class="row m-1">
+        <div class="col-lg-12 col-md-12 col-sm-12 humidity-section border-all">
+          <div class="row text-center">
+            <div class="col-lg-3 col-md-6 col-sm-6 pt-3 border-all">
+              <i class="bi bi-moisture"> Humidity</i>
+              <br />
+
+              <p id="HumidityText">0%</p>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 pt-3 border-all">
+              <i class="bi bi-wind"> Wind Speed</i>
+              <p id="windText">0m/s</p>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 pt-3 border-all">
+              <i class="bi bi-speedometer"> Pressure</i>
+              <p id="pressureText">0hPa</p>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 pt-3 border-all">
+              <i class="bi bi-eye"> Visibility</i>
+              <p id="visibilityText">0.0km</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <br />
+      <!-- hourly forecast section -->
+      <div class="row" class="hourly-forecast-data border-all">
+        <div class="col-lg-12 text-center">
+          <p class="Heading-Text">Today Forecast</p>
+        </div>
+
+        <div class="row m-1 hour-forecast-blocks">
+          <div
+            class="col me-1 mt-1 mb-1 pt-3 hour-forecast-sections text-center border-all"
+          >
+            <p id="timeHour" class="time-hour">00:00 AM</p>
+            <br />
+            <div>
+              <p class="temp-Hour">0 °C</p>
+              <img
+                src="images/iconSample.png"
+                class="image-icon-hour"
+                alt="icon"
+              />
+              <p class="icon-des-hour">Description</p>
+            </div>
+
+            <div>
+              <i class="bi bi-wind"></i>
+              <p class="wind-speed-hour pt-2">0 m/s</p>
+            </div>
+          </div>
+          <br />
+          <div
+            class="col me-1 mt-1 mb-1 pt-3 hour-forecast-sections text-center border-all"
+          >
+            <p id="timeHour" class="time-hour">00:00 AM</p>
+            <br />
+            <div>
+              <p class="temp-Hour">0 °C</p>
+              <img
+                src="images/iconSample.png"
+                class="image-icon-hour"
+                alt="icon"
+              />
+              <p class="icon-des-hour">Description</p>
+            </div>
+
+            <div>
+              <i class="bi bi-wind"></i>
+              <p class="wind-speed-hour pt-2">0 m/s</p>
+            </div>
+          </div>
+          <br />
+          <div
+            class="col me-1 mt-1 mb-1 pt-3 hour-forecast-sections text-center border-all"
+          >
+            <p id="timeHour" class="time-hour">00:00 AM</p>
+            <br />
+            <div>
+              <p class="temp-Hour">0 °C</p>
+              <img
+                src="images/iconSample.png"
+                class="image-icon-hour"
+                alt="icon"
+              />
+              <p class="icon-des-hour">Description</p>
+            </div>
+
+            <div>
+              <i class="bi bi-wind"></i>
+              <p class="wind-speed-hour pt-2">0 m/s</p>
+            </div>
+          </div>
+          <br />
+          <div
+            class="col me-1 mt-1 mb-1 pt-3 hour-forecast-sections text-center border-all"
+          >
+            <p id="timeHour" class="time-hour">00:00 AM</p>
+            <br />
+            <div>
+              <p class="temp-Hour">0 °C</p>
+              <img
+                src="images/iconSample.png"
+                class="image-icon-hour"
+                alt="icon"
+              />
+              <p class="icon-des-hour">Description</p>
+            </div>
+
+            <div>
+              <i class="bi bi-wind"></i>
+              <p class="wind-speed-hour pt-2">0 m/s</p>
+            </div>
+          </div>
+          <br />
+          <div
+            class="col me-1 mt-1 mb-1 pt-3 hour-forecast-sections text-center border-all"
+          >
+            <p id="timeHour" class="time-hour">00:00 AM</p>
+            <br />
+            <div>
+              <p class="temp-Hour">0 °C</p>
+              <img
+                src="images/iconSample.png"
+                class="image-icon-hour"
+                alt="icon"
+              />
+              <p class="icon-des-hour">Description</p>
+            </div>
+
+            <div>
+              <i class="bi bi-wind"></i>
+              <p class="wind-speed-hour pt-2">0 m/s</p>
+            </div>
+          </div>
+          <br />
+        </div>
+      </div>
+      <br />
+      <br />
+
+      <!-- days forecast section -->
+      <div class="row m-1 days-forecast">
+        <div class="col-lg-12 text-center">
+          <p class="Heading-Text">5 days forecast</p>
+        </div>
+        <br />
+        <div
+          class="col-lg-12 mt-1 mb-1 pt-2 text-center border-all Days-block-container"
+        >
+          <div class="row Days-block">
+            <div class="col-lg-4">
+              <p class="time-day">Y-M-D</p>
+            </div>
+            <div class="col-lg-2">
+              <p class="day-name-forecast">Day</p>
+            </div>
+
+            <div class="col-lg-2">
+              <p class="temp-day">0°C</p>
+            </div>
+            <div class="col-lg-2">
+              <img
+                src="images/weather-forecast (2).png"
+                class="image-icon-day"
+                alt="icon"
+              />
+            </div>
+            <div class="col-lg-2">
+              <p class="image-text-day">Description</p>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div
+          class="col-lg-12 mt-1 mb-1 pt-2 text-center border-all Days-block-container"
+        >
+          <div class="row Days-block">
+            <div class="col-lg-4">
+              <p class="time-day">Y-M-D</p>
+            </div>
+            <div class="col-lg-2">
+              <p class="day-name-forecast">Day</p>
+            </div>
+
+            <div class="col-lg-2">
+              <p class="temp-day">0°C</p>
+            </div>
+            <div class="col-lg-2">
+              <img
+                src="images/weather-forecast (2).png"
+                class="image-icon-day"
+                alt="icon"
+              />
+            </div>
+            <div class="col-lg-2">
+              <p class="image-text-day">Description</p>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div
+          class="col-lg-12 mt-1 mb-1 pt-2 text-center border-all Days-block-container"
+        >
+          <div class="row Days-block">
+            <div class="col-lg-4">
+              <p class="time-day">Y-M-D</p>
+            </div>
+            <div class="col-lg-2">
+              <p class="day-name-forecast">Day</p>
+            </div>
+
+            <div class="col-lg-2">
+              <p class="temp-day">0°C</p>
+            </div>
+            <div class="col-lg-2">
+              <img
+                src="images/weather-forecast (2).png"
+                class="image-icon-day"
+                alt="icon"
+              />
+            </div>
+            <div class="col-lg-2">
+              <p class="image-text-day">Description</p>
+            </div>
+          </div>
+        </div>
+        <br />
+
+        <div
+          class="col-lg-12 mt-1 mb-1 pt-2 text-center border-all Days-block-container"
+        >
+          <div class="row Days-block">
+            <div class="col-lg-4">
+              <p class="time-day">Y-M-D</p>
+            </div>
+            <div class="col-lg-2">
+              <p class="day-name-forecast">Day</p>
+            </div>
+
+            <div class="col-lg-2">
+              <p class="temp-day">0°C</p>
+            </div>
+            <div class="col-lg-2">
+              <img
+                src="images/weather-forecast (2).png"
+                class="image-icon-day"
+                alt="icon"
+              />
+            </div>
+            <div class="col-lg-2">
+              <p class="image-text-day">Description</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-lg-12 mt-1 mb-1 pt-2 text-center border-all Days-block-container"
+        >
+          <div class="row Days-block">
+            <div class="col-lg-4">
+              <p class="time-day">Y-M-D</p>
+            </div>
+            <div class="col-lg-2">
+              <p class="day-name-forecast">Day</p>
+            </div>
+
+            <div class="col-lg-2">
+              <p class="temp-day">0°C</p>
+            </div>
+            <div class="col-lg-2">
+              <img
+                src="images/weather-forecast (2).png"
+                class="image-icon-day"
+                alt="icon"
+              />
+            </div>
+            <div class="col-lg-2">
+              <p class="image-text-day">Description</p>
+            </div>
+          </div>
+        </div>
+
+        <br />
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
