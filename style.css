@@ -1,122 +1,89 @@
 @font-face {
-    font-family: 'roboto-med';
+    font-family: "roboto-med";
     src: url(fonts/Roboto-Medium.ttf);
-}
-@font-face {
-    font-family: 'roboto-reg';
+   }
+   @font-face {
+    font-family: "roboto-reg";
     src: url(fonts/Roboto-Regular.ttf);
-}
-@font-face {
-    font-family: 'roboto-light';
+   }
+   @font-face {
+    font-family: "roboto-light";
     src: url(fonts/Roboto-Light.ttf);
-}
-html{
+   }
+   html {
     font-size: 16px;
-
-
-   
-
-}
-body{
+   }
+   body {
     background-image: url(images/back4.jpg);
-    font-family:'roboto-med',sans-serif;
-   padding: 0;
-   margin: 0;
-   background-size:cover;
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-   background-position: center;
-   overflow-x: hidden;
-   --sb-track-color: #ffffff;
+    font-family: "roboto-med", sans-serif;
+    padding: 0;
+    margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+    --sb-track-color: #ffffff;
     --sb-thumb-color: #4c95fe;
     --sb-size: 12px;
-}
-
-
-  body::-webkit-scrollbar {
-    width: var(--sb-size)
-  }
-  
-  body::-webkit-scrollbar-track {
+   }
+   
+   body::-webkit-scrollbar {
+    width: var(--sb-size);
+   }
+   
+   body::-webkit-scrollbar-track {
     background: var(--sb-track-color);
     border-radius: 3px;
-  }
-  
-  body::-webkit-scrollbar-thumb {
+   }
+   
+   body::-webkit-scrollbar-thumb {
     background: var(--sb-thumb-color);
     border-radius: 3px;
-    
-  }
-  
-  @supports not selector(::-webkit-scrollbar) {
-    body {
-      scrollbar-color: var(--sb-thumb-color)
-                       var(--sb-track-color);
-    }
-  }
-
-
-
-.container{
+   }
    
- width: 100%;
- color: rgb(249, 249, 249) !important;
-}
-.border-all{
+   @supports not selector(::-webkit-scrollbar) {
+    body {
+     scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+   }
+   
+   .container {
+    width: 100%;
+    color: rgb(249, 249, 249) !important;
+   }
+   .border-all {
     border: 2px solid rgb(255, 255, 255);
-}
-/* search box */
-.search-box-section{
+   }
+   /* search box */
+   .search-box-section {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     align-items: center;
-   
-
-}
-.logo-text{
+   }
+   .logo-text {
     font-size: 1.3rem;
     color: white;
-    
-}
-.logo-section{
+   }
+   .logo-section {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     text-align: center;
-    
-}
-.nav-section{
+   }
+   .nav-section {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     align-items: center;
-}
-
-/* #LocationBtn{
-    background-color: rgb(255, 255, 255);
-   font-size:  1.4rem;
-   padding: 0.3rem 0.8rem;
+   }
+   .uiverse {
+    font-size: 1.4rem;
+    padding: 0.1rem 0.5rem;
     border: none;
-    border-radius:30px ;
-    color: rgb(0, 0, 0);
-    transition: all 0.4s;
-
-}
-#LocationBtn:hover{
-    background-color:transparent;
-   
-   border:1px solid white;
-   color:white;
-   
-
-} */
-.uiverse {
-    font-size:  1.4rem;
-   padding: 0.1rem 0.5rem;
-    border: none;
-    border-radius:30px ;
+    border-radius: 30px;
     position: relative;
     background: #ffffff;
     color: #000;
@@ -127,9 +94,9 @@ body{
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .tooltip {
+   }
+   
+   .tooltip {
     position: absolute;
     top: 0;
     font-size: 0.8rem;
@@ -141,116 +108,107 @@ body{
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .tooltip::before {
+   }
+   
+   .tooltip::before {
     position: absolute;
     content: "";
-  
+   
     background: #ffffff;
     /* bottom: -3px;
-    left: 50%; */
+       left: 50%; */
     transform: translate(-50%) rotate(45deg);
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-  
-  .uiverse:hover .tooltip {
+   }
+   
+   .uiverse:hover .tooltip {
     top: 50px;
-
+   
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-  }
-  
-  svg:hover span,
-  svg:hover .tooltip {
+   }
+   
+   svg:hover span,
+   svg:hover .tooltip {
     text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
-  }
-  
-  .uiverse:hover,
-  .uiverse:hover .tooltip,
-  .uiverse:hover .tooltip::before {
+   }
+   
+   .uiverse:hover,
+   .uiverse:hover .tooltip,
+   .uiverse:hover .tooltip::before {
     background: linear-gradient(320deg, rgb(3, 77, 146), rgb(0, 60, 255));
     color: #ffffff;
-  }
-#searchBtn{
+   }
+   #searchBtn {
     color: white;
-    border:0.1rem solid white;
-
-}
-#suggestions{
+    border: 0.1rem solid white;
+   }
+   #suggestions {
     margin-top: -1.1rem;
     border: 0.1rem solid white;
-    padding:  0.6rem;
-
-}
-
-/* current weather */
-#countryName{
+    padding: 0.6rem;
+   }
+   
+   /* current weather */
+   #countryName {
     font-family: roboto-med;
     font-size: 1.7rem;
     font-weight: bold;
-    
-}
-#CountryDate{
+   }
+   #CountryDate {
     font-size: 1rem;
-}
-.Flex-class{
+   }
+   .Flex-class {
     display: flex;
-   flex-direction: row;
- justify-content: flex-start;
- line-height: 0.8rem;
-
-}
-
-#TemperatureMain{
+    flex-direction: row;
+    justify-content: flex-start;
+    line-height: 0.8rem;
+   }
+   
+   #TemperatureMain {
     font-size: 3.5rem;
     font-family: roboto-med;
     font-weight: bold;
-}
-
-.feels-class{
+   }
+   
+   .feels-class {
     display: flex;
     flex-direction: row;
-  justify-content: center;
- 
-
-
-}
-.bi-thermometer-sun{
+    justify-content: center;
+   }
+   .bi-thermometer-sun {
     font-size: 1.1rem;
-}
-#feelsLike{
+   }
+   #feelsLike {
     font-size: 1rem;
     font-family: roboto-med;
-}
-#iconWeatherText{
+   }
+   #iconWeatherText {
     font-family: roboto-med;
     font-size: 1rem;
-}
-/* 
-air quality index */
-.air-section{
+   }
+   /* 
+   air quality index */
+   .air-section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     text-align: center;
-
-}
-.air-quality{
+   }
+   .air-quality {
     font-size: 1.3rem;
     font-family: roboto-med;
-
-}
-.air-col{
+   }
+   .air-col {
     font-size: 1rem;
     font-family: roboto-light;
     display: flex;
     align-items: center;
-justify-content: center;
-}
-#airQualityIndex{
+    justify-content: center;
+   }
+   #airQualityIndex {
     color: black;
     background-color: white;
     font-family: roboto-med;
@@ -259,99 +217,88 @@ justify-content: center;
     border-radius: 30px;
     border: none;
     cursor: pointer;
-
-}
-
-/* humidity block */
-.humidity-section i{
+   }
+   
+   /* humidity block */
+   .humidity-section i {
     font-size: 1.3rem;
     font-family: roboto-med;
     font-style: normal;
-}
-.humidity-section p{
+   }
+   .humidity-section p {
     font-size: 1.5rem;
     font-family: roboto-med;
-}
-.hourly-forecast-data{
+   }
+   .hourly-forecast-data {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-}
-.Heading-Text{
-   
+   }
+   .Heading-Text {
     font-weight: bold;
     font-size: 1.7rem;
-}
-
-/* hourly forecast */
-.time-hour{
-    
+   }
+   
+   /* hourly forecast */
+   .time-hour {
     font-size: 1.2rem;
-}
-.temp-Hour{
-  
+   }
+   .temp-Hour {
     font-size: 1.5rem;
-
-}
-.icon-des-hour{
-    
+   }
+   .icon-des-hour {
     font-size: 0.8rem;
-}
-.wind-speed-hour{
+   }
+   .wind-speed-hour {
     font-family: roboto-light;
-
-}
-.image-icon-hour{
+   }
+   .image-icon-hour {
     max-height: 90px;
-}
-.hour-forecast-sections {
+   }
+   .hour-forecast-sections {
     font-family: roboto-med;
     line-height: 0.9rem;
-    
-  
-}
-.hour-forecast-blocks{
+   }
+   .hour-forecast-blocks {
     display: flex;
+   }
    
-}
-
-/* days forecast css */
-.Days-block{
+   /* days forecast css */
+   .Days-block {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     font-size: 1rem;
     min-height: 100px;
-
-}
-.time-day,.day-name-forecast{
+   }
+   .time-day,
+   .day-name-forecast {
     font-size: 1.1rem;
-}
-.temp-day{
+   }
+   .temp-day {
     font-family: roboto-med;
-    font-size: 1.4rem; 
-}
-
-.image-text-day{
-    font-size: 0.9rem;  
-}
-.show{
+    font-size: 1.4rem;
+   }
+   
+   .image-text-day {
+    font-size: 0.9rem;
+   }
+   .show {
     display: grid;
-
-}
-.hide{
+   }
+   .hide {
     display: none;
-}
-.image-icon-day{
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.day-name{
+   }
+   .image-icon-day {
+    padding-top: 20px;
+    padding-bottom: 20px;
+   }
+   
+   .day-name {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
     align-items: center;
-}
+   }
